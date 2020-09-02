@@ -14,7 +14,7 @@ private:
 	
 public:
 
-	explicit School(const string& name);
+	School();
 
 	void set_name(const string& name);
 

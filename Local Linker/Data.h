@@ -1,6 +1,7 @@
 ﻿#pragma once
 
-#include<string>
+#include <string>
+#include "School.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ private:
 	string department_name;
 	int year_of_passing;
 	int graph_id;
-	//LL of school
+	School* school_adr;
 	//LL of Hobbies
 	string password;
 public:
@@ -27,6 +28,10 @@ public:
 	void set_graph_id(const int& id);
 
 	void set_password(const string& pass);
+
+	void set_school(School* adr);
+
+	School* get_school_adr() const;
 
 	string get_password() const;
 

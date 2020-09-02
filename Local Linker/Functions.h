@@ -1,7 +1,8 @@
 #pragma once
 
-#include"Graph.h"
-#include"Data.h"
+#include "Graph.h"
+#include "Data.h"
+#include "School.h"
 
 inline void create_new_user(Graph& graph){
 	int slot = _MAX_INT_DIG;
@@ -29,33 +30,22 @@ inline void create_new_user(Graph& graph){
 		cout << "Enter the password for your account: ";
 		string password; cin >> password;
 		Data* data_address = new Data(username,password);
+		School* school_address = new School();
 		data_address->set_graph_id(slot);
-		cout << "Do you want to add some basic info to your account?(y/n) ";
-		char resp; cin >> resp;
-		if(resp == 'y')
-		{
-			cout << "Enter your name: ";
-			string name; cin >> name;
-			data_address->set_name(name);
-			cout << "Enter your department: ";
-			string dpt; cin >> dpt;
-			data_address->set_department(dpt);
-			cout << "Enter year of passing: ";
-			int yop; cin >> yop;
-			data_address->set_passing_year(yop);
-		}
+		data_address->set_school(school_address);
+		graph.register_userID(username, slot);
 		graph.map_user_data(username, data_address);
+		cout << "To add further details please log in!" << endl;
 	}
 }
 
 inline Data* user_login(Graph& graph)
 {
-	Data* login = nullptr;
 	cout << "\nEnter your username: ";
 	string user; cin >> user;
 	cout << "Enter the password: ";
 	string pass; cin >> pass;
-	login = graph.login(user, pass);
+	Data* login = graph.login(user, pass);
 	if(login)
 	{
 		cout << "\nLogged in Successfully!" << endl;

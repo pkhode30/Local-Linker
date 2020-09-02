@@ -14,7 +14,12 @@ Graph::Graph(const int& users)
 
 void Graph::map_user_data(const string& id, Data* address)
 {
-	user_data[id] = address;
+	this->user_data[id] = address;
+}
+
+void Graph::register_userID(const string& username, int slot)
+{
+	this->user_id[slot] = username;
 }
 
 Data* Graph::login(const string& user, const string& pass)

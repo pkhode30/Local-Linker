@@ -1,8 +1,7 @@
 ﻿#include "School.h"
 
-School::School(const string& name): s_year(0), e_year(0), next(nullptr)
+School::School(): s_name(""), s_year(0), e_year(0), next(nullptr)
 {
-	this->s_name = name;
 }
 
 void School::set_name(const string& name)

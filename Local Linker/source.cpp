@@ -11,7 +11,7 @@ int main()
 	Graph graph = Graph(users);
 	Data* user;
 	string crt_user = "Guest";
-	bool repeat = true, login_ok = false;
+	bool repeat = true;
 	cout << "\t\t\t\t\t\t~~~~~Local Linker~~~~~" << endl;
 																													//Interface Start
 	while (repeat) 
@@ -33,7 +33,7 @@ int main()
 			user = user_login(graph);
 			if(user)
 			{
-				login_ok = true;
+				bool login_ok = true;
 																									//Interface 1.1 :- (After Login)
 				while (login_ok)
 				{

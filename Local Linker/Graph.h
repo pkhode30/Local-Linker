@@ -36,4 +36,6 @@ public:
 	vector<int> m_friends(int u) const;
 	
 	vector<int> short_path(int s, int e) const;
+	
+	void register_userID(const string& username, int slot);
 };

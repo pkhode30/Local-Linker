@@ -32,6 +32,16 @@ void Data::set_password(const string& pass)
 	this->password = pass;
 }
 
+void Data::set_school(School* adr)
+{
+	this->school_adr = adr;
+}
+
+School* Data::get_school_adr() const
+{
+	return this->school_adr;
+}
+
 string Data::get_password() const
 {
 	return password;
