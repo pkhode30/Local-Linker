@@ -99,7 +99,7 @@ inline void print_user_data(Data* user)
 inline void update_user_data(Data* user)
 {
 	bool repeat = true, editSchool;
-	int choice, n_graduation_year, school_num, count, s, e;
+	int choice, n_graduation_year, count, s, e;
 	string n_name, n_password, n_department, n_userID, s_name;
 	while(repeat)
 	{
