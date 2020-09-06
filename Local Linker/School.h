@@ -18,9 +18,9 @@ public:
 
 	void set_name(const string& name);
 
-	void set_start_year(const int year);
+	void set_start_year(int year);
 
-	void set_end_year(const int year);
+	void set_end_year(int year);
 
 	void set_next_school(School* n_adr);
 

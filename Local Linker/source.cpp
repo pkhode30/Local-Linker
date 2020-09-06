@@ -10,21 +10,19 @@ int main()
 	int choice;
 	Graph graph = Graph(users);
 	Data* user;
-	string crt_user = "Guest";
 	bool repeat = true;
 	cout << "\t\t\t\t\t\t~~~~~Local Linker~~~~~" << endl;
-																													//Interface Start
 	while (repeat) 
 	{
-		cout << "\t\t\t\t\t\t\t\t\t\t\t\tCurrent User-" << crt_user << endl;
-		cout << "Select one option below:" << endl;
+		cout << "Select an option:" << endl;
 		cout << "1-->Sign up (for new users)" << endl;
 		cout << "2-->Log in" << endl;
-		cout << "3-->Admin Login" << endl;
-		cout << "4-->Quit" << endl;
+		cout << "3-->Quit" << endl;
+		//cout << "4-->Admin Login" << endl;
 		cout << "\nEnter your choice: ";
 		cin >> choice;
-		switch (choice) {
+		switch (choice)
+		{
 		case 1:
 			create_new_user(graph);
 			cout << "\n###~New user created~###" << endl;
@@ -34,7 +32,6 @@ int main()
 			if(user)
 			{
 				bool login_ok = true;
-																									//Interface 1.1 :- (After Login)
 				while (login_ok)
 				{
 					cout << "\t\t\t\t\t\t\t\t\t\t\t\tCurrent User-" << user->get_userID() << endl;
@@ -48,7 +45,8 @@ int main()
 					cout << "7-->Log out" << endl;
 					cout << "\nEnter your choice: ";
 					cin >> choice;
-					switch (choice) {
+					switch (choice)
+					{
 					case 1:
 						print_user_data(user);
 						break;
@@ -81,12 +79,13 @@ int main()
 			{
 				cout << "\nUnable to login!!" << endl;
 			}
-		case 3:
-
 			break;
-		case 4:
+		case 3:  
 			repeat = false;
 			break;
+		// case 4:
+		// TODO: function for ADMIN login
+		// 	break;
 		default:
 			std::cout << "\nPlease enter correct choice" << endl;
 			break;

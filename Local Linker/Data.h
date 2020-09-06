@@ -31,6 +31,12 @@ public:
 
 	void set_school(School* adr);
 
+	void add_new_school(const string& name, const int start, const int end);
+
+	void print_schools() const;
+
+	void delete_school(int n);
+
 	School* get_school_adr() const;
 
 	string get_password() const;
