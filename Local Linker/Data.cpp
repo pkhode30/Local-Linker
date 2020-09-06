@@ -8,6 +8,10 @@ Data::Data(const string& user, const string& pass): year_of_passing(0), graph_id
 	this->password = pass;
 }
 
+Data::~Data()
+{
+}
+
 void Data::set_name(const string& Name)
 {
 	this->name = Name;

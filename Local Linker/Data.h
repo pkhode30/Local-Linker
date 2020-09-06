@@ -20,6 +20,8 @@ private:
 public:
 	explicit Data(const string& user, const string& pass);
 
+	~Data();
+
 	string get_userID() const;
 
 	void set_name(const string& name);

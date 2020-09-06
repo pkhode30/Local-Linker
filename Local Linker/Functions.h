@@ -83,13 +83,15 @@ inline Data* user_login(Graph& graph)
 	return login;
 }
 
-inline void print_user_data(Data* user)
+inline void print_user_data(Graph& graph, Data* user)
 {
 	cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 	cout << "Name: " << user->get_name() << endl;
 	cout << "Username: " << user->get_userID() << endl;
 	cout << "Department: " << user->get_department() << endl;
 	cout << "Year of passing: " << user->get_year_of_passing() << endl;
+	cout << "Friends: " << endl;
+	graph.print_friends(user);
 	cout << "Hobbies: " << endl;
 	user->print_hobbies();
 	cout << "Schools: " << endl;
@@ -226,7 +228,7 @@ inline void search_user(Graph& graph, Data* user)
 	{
 		cout << "User found!" << endl;
 		Data* user2 = graph.get_user_data(user_n);
-		print_user_data(user2);
+		print_user_data(graph, user2);
 		cout << "Do you want to add them as a connection?(y/n)" << endl;
 		string resp; cin >> resp;
 		if(resp=="y")

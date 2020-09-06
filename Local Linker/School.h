@@ -16,6 +16,8 @@ public:
 
 	School();
 
+	~School();
+
 	void set_name(const string& name);
 
 	void set_start_year(int year);

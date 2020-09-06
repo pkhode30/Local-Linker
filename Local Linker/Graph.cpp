@@ -8,8 +8,12 @@ using namespace std;
 Graph::Graph(const int& users)
 {
 	v_ = users;
-	adj_ = new vector<int>(v_, 0);
+	adj_ = new vector<int>[users];
 	user_id = vector<string>(v_, "NOT SET");
+}
+
+Graph::~Graph()
+{
 }
 
 void Graph::map_user_data(const string& id, Data* address)

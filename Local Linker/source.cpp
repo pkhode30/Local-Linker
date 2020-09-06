@@ -47,7 +47,7 @@ int main()
 					switch (choice)
 					{
 					case 1:
-						print_user_data(user);
+						print_user_data(graph, user);
 						break;
 					case 2:
 						update_user_data(user);

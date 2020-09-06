@@ -4,6 +4,9 @@ School::School(): s_name(""), s_year(0), e_year(0), next(nullptr)
 {
 }
 
+School::~School()
+= default;
+
 void School::set_name(const string& name)
 {
 	this->s_name = name;

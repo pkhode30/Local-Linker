@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#include<iostream>
 #include<map>
 #include<string>
 #include<vector>
@@ -9,14 +10,16 @@ using namespace std;
 
 class Graph {
 private:
-	vector<int>* adj_ = nullptr;
+	vector<int>* adj_;
 	int v_ = 0;
 	map<string, Data*> user_data;
 	vector<string> user_id;
 
 public:
 	explicit Graph(const int& users);
-	
+
+	~Graph();
+
 	void map_user_data(const string& id, Data* address);
 
 	Data* login(const string& user, const string& pass);
@@ -40,4 +43,14 @@ public:
 	vector<int> short_path(int s, int e) const;
 	
 	void register_userID(const string& username, int slot);
+
+	void print_friends(Data* user)
+	{
+		int i = 1;
+		for(auto ele:this->adj_[user->get_graph_id()])
+		{
+			cout << i << ". " << user_data[user_id[ele]]->get_userID() << endl;
+			i++;
+		}
+	}
 };
