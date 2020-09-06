@@ -90,17 +90,18 @@ inline void print_user_data(Data* user)
 	cout << "Username: " << user->get_userID() << endl;
 	cout << "Department: " << user->get_department() << endl;
 	cout << "Year of passing: " << user->get_year_of_passing() << endl;
+	cout << "Hobbies: " << endl;
+	user->print_hobbies();
 	cout << "Schools: " << endl;
 	user->print_schools();
-	//HOBBIES
 	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 }
 
 inline void update_user_data(Data* user)
 {
-	bool repeat = true, editSchool;
+	bool repeat = true, editSchool, editHobbies;
 	int choice, n_graduation_year, count, s, e;
-	string n_name, n_password, n_department, n_userID, s_name;
+	string n_name, n_password, n_department, n_userID, s_name, hobby;
 	while(repeat)
 	{
 		cout << "\t\t\t\t\t\t\t\t\t\t\t\tCurrent User-" << user->get_userID() << endl;
@@ -110,7 +111,7 @@ inline void update_user_data(Data* user)
 		cout << "3-->Department" << endl;
 		cout << "4-->Year of passing" << endl;
 		cout << "5-->Previous Schools" << endl;
-		cout << "6-->Hobbies" << endl;			//TODO:add/delete/exit
+		cout << "6-->Hobbies" << endl;
 		cout << "7-->Exit" << endl;
 		cout << "\nEnter your choice: ";
 		cin >> choice;
@@ -170,7 +171,36 @@ inline void update_user_data(Data* user)
 			}
 			break;
 		case 6:
-			//hobbies
+			editHobbies = true;
+			while (editHobbies)
+			{
+				user->print_hobbies();
+				cout << "\nSelect operation from the following: " << endl;
+				cout << "1-->Add" << endl;
+				cout << "2-->Delete" << endl;
+				cout << "3-->Exit" << endl;
+				cout << "\nEnter your choice: ";
+				cin >> choice;
+				switch (choice)
+				{
+				case 1:
+					cout << "Enter your Hobby: ";
+					cin >> hobby;
+					user->add_hobby(hobby);
+					break;
+				case 2:
+					cout << "Enter the Hobby to delete: ";
+					cin >> hobby;
+					user->delete_hobby(hobby);
+					break;
+				case 3:
+					editHobbies = false;
+					break;
+				default:
+					std::cout << "\n###~Please enter correct choice~###" << std::endl;
+					break;
+				}
+			}
 			break;
 		case 7:
 			repeat = false;
@@ -180,4 +210,56 @@ inline void update_user_data(Data* user)
 			break;
 		}
 	}
+}
+
+inline void search_user(Graph& graph, Data* user)
+{
+	cout << "Enter the username to search: ";
+	string user_n; cin >> user_n;
+	if (graph.is_unique(user_n))
+	{
+		cout << "User does not exist with given username. Please try again. " << endl;
+		cout << "Enter the username: ";
+		cin >> user_n;
+	}
+	else
+	{
+		cout << "User found!" << endl;
+		Data* user2 = graph.get_user_data(user_n);
+		print_user_data(user2);
+		cout << "Do you want to add them as a connection?(y/n)" << endl;
+		string resp; cin >> resp;
+		if(resp=="y")
+		{
+			graph.connect(user->get_graph_id(), user2->get_graph_id());
+		}
+	}
+}
+
+inline void add_connection(Graph& graph, Data* user)
+{
+	cout << "Enter the username to search: ";
+	string user_n; cin >> user_n;
+	if(graph.is_unique(user_n))
+	{
+		cout << "User does not exist with given username. Please try again. " << endl;
+		cout << "Enter the username: ";
+		cin >> user_n;
+	}
+	else
+	{
+		Data* user2 = graph.get_user_data(user_n);
+		graph.connect(user->get_graph_id(), user2->get_graph_id());
+		cout << "Connection added successfully!" << endl;
+	}
+}
+
+inline void get_suggestions(Graph& graph, Data* user)
+{
+	
+}
+
+inline void delete_my_account(Graph& graph, Data* user)
+{
+	
 }

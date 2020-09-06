@@ -18,7 +18,6 @@ int main()
 		cout << "1-->Sign up (for new users)" << endl;
 		cout << "2-->Log in" << endl;
 		cout << "3-->Quit" << endl;
-		//cout << "4-->Admin Login" << endl;
 		cout << "\nEnter your choice: ";
 		cin >> choice;
 		switch (choice)
@@ -54,16 +53,16 @@ int main()
 						update_user_data(user);
 						break;
 					case 3:
-
+						search_user(graph, user);
 						break;
 					case 4:
-
+						add_connection(graph, user);
 						break;
 					case 5:
-
+						get_suggestions(graph, user);
 						break;
 					case 6:
-
+						delete_my_account(graph, user);
 						break;
 					case 7:
 						user = nullptr;
@@ -83,9 +82,6 @@ int main()
 		case 3:  
 			repeat = false;
 			break;
-		// case 4:
-		// TODO: function for ADMIN login
-		// 	break;
 		default:
 			std::cout << "\nPlease enter correct choice" << endl;
 			break;

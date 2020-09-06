@@ -16,10 +16,12 @@ private:
 
 public:
 	explicit Graph(const int& users);
-
-	void map_user_data(const string& id, Data* adr);
+	
+	void map_user_data(const string& id, Data* address);
 
 	Data* login(const string& user, const string& pass);
+
+	Data* get_user_data(const string& user);
 
 	int get_graph_size() const;
 
@@ -27,7 +29,7 @@ public:
 
 	bool is_unique(const string& username);
 
-	void add_edge(int u, int v) const;
+	void connect(int u, int v) const;
 	
 	void print() const;
 	

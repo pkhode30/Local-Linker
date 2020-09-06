@@ -34,13 +34,17 @@ Data* Graph::login(const string& user, const string& pass)
 		{
 			return nullptr;
 		}
-		
 	}
 	else
 	{
 		cout << "incorrect username. please try again!" << endl;
 		return nullptr;
 	}
+}
+
+Data* Graph::get_user_data(const string& user)
+{
+	return this->user_data[user];
 }
 
 int Graph::get_graph_size() const
@@ -58,7 +62,7 @@ bool Graph::is_unique(const string& username)
 	return !user_data[username] ? true : false;
 }
 
-void Graph :: add_edge(int u, int v) const
+void Graph :: connect(int u, int v) const
 {
 	adj_[u].push_back(v);
 	adj_[v].push_back(u);

@@ -28,9 +28,41 @@ void Data::set_graph_id(const int& id)
 	this->graph_id = id;
 }
 
+int Data::get_graph_id() const
+{
+	return this->graph_id;
+}
+
 void Data::set_password(const string& pass)
 {
 	this->password = pass;
+}
+
+void Data::add_hobby(const string& hobby)
+{
+	this->Hobby.push_back(hobby);
+}
+
+void Data::delete_hobby(const string& hobby)
+{
+	for (vector<string>::const_iterator i = Hobby.begin(); i < this->Hobby.end(); ++i)
+	{
+		if (*i == hobby)
+		{
+			Hobby.erase(i);
+			break;
+		}
+	}
+}
+
+void Data::print_hobbies()
+{
+	int count = 1;
+	for (string& ele : this->Hobby)
+	{
+		cout << count << ". " << ele << endl;
+		count++;
+	}
 }
 
 void Data::set_school(School* adr)
